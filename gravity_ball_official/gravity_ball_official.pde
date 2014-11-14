@@ -12,7 +12,7 @@ void setup(){
   locx=width/2;
   locy=height/3;
   sz=50;
-  velx=0;
+  velx=1;
   vely=1;
   accx=.03;
   accy=.05;
