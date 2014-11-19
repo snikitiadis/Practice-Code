@@ -1,4 +1,5 @@
-PVector loc,vel,acc;
+PVector loc,vel,acc,mouse;
+
 float sz=100;
 
 void setup(){
@@ -7,16 +8,28 @@ void setup(){
   loc= new PVector(width/2,height/2);
   vel= PVector.random2D();
   acc=new PVector();
+  
   noCursor();
 }
 
 void draw(){
+  mouse=new PVector(mouseX,mouseY);
   background(0);
   vel.add(acc);
   loc.add(vel);
   
-  if(dist(mouseX,mouseY,loc.x,loc.y) <sz/2){
-   fill(270,70,100); 
+  if(loc.dist(mouse) <sz/2){
+   fill(310,70,100); 
+   if (loc.x < mouse.x) {     
+      vel.x = -abs(vel.x);      
+    } else {                   
+      vel.x = abs(vel.x);       
+    }
+    if (loc.y < mouse.y) {     
+      vel.y = -abs(vel.y);
+    } else {
+      vel.y = abs(vel.y);
+    }
   }else{
     fill(150,100,100);}
     
@@ -29,5 +42,5 @@ void draw(){
      vel.y*=-1; 
     }
     
-    ellipse(mouseX,mouseY,10,10);
+    ellipse(mouse.x,mouse.y,10,10);
 }
