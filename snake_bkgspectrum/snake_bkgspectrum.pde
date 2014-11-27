@@ -13,6 +13,7 @@ void setup() {
     y[i] = random(height);
   }
   noStroke();
+  noCursor();
 }
 
 void draw() {
