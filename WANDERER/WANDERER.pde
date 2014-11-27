@@ -8,13 +8,14 @@ void setup() {
   size(displayWidth, displayHeight);
   colorMode(HSB, 360, 100, 100, 100);
   loc= new PVector(width/2,height/2);
- vel= new PVector(1,8);
+ vel= new PVector(1,20);
 }
 
 void draw() {
   noStroke();
 fill(frameCount%360,100,100);
-  vel=PVector.random2D();
+  acc= new PVector(random(-.2,.2),random(-.2,.2));
+  vel.add(acc);
   vel.limit(5);
   loc.add(vel);
 
@@ -35,8 +36,5 @@ fill(frameCount%360,100,100);
   if (loc.y +sz/2<0) {
     loc.y=height+sz/2;
   }
-  acc=PVector.random2D();
-  acc.mult(.1);
+  
 }
-
-
