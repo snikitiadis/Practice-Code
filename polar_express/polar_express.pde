@@ -38,7 +38,6 @@ void draw() {
     pushMatrix();
     translate(loc[i].x, loc[i].y);
     rotate(theta[i]);
-    tint(255,50);
     image(snowflake, 0, 0, sz[i], sz[i]);
     popMatrix();
     //change horizontal acceleration
