@@ -1,4 +1,4 @@
-Ball[] g= new Ball[100];
+Ball[] g= new Ball[20];
 
 
 void setup() {
@@ -23,10 +23,10 @@ class Ball {
   float sz;
   float hue, sat, bright, alpha;
   Ball() {
-    sz=random(10, 100);
+    sz=random(100,200);
     loc = new PVector(random(sz, width-sz), random(height/2));
-    vel = new PVector(0, 0);
-    acc = new PVector(0, .1);
+    vel = PVector.random2D();
+    acc = PVector.random2D();
     hue = random(360);
     sat = 100;
     bright = 100;
@@ -52,14 +52,17 @@ class Ball {
   }
 
   void move() {
-    vel.add(acc);
+    
     loc.add(vel);
   }
 
   void bounce() {
-    if (loc.y > height - sz/2) {
-      loc.y = height - sz/2;
-      vel.y = -abs(vel.y);
+    if (loc.x+sz/2 >width || loc.x-sz/2<0){
+    vel.x *=-1;
+    }
+    if (loc.y +sz/2> height || loc.y-sz/2<0) {
+      
+      vel.y = vel.y*=-1;
     }
   }
 }
