@@ -9,7 +9,7 @@ void setup() {
   noStroke();
   colorMode(HSB, 360, 100, 100, 100);
   for (int i = 0; i < loc.length; i++) {
-    loc[i] = new PVector(width/2, height/2);
+    loc[i] = new PVector(width, height);
   }
 }
 
@@ -27,14 +27,15 @@ void draw() {
       allMyParticles.remove(i);
     }
   }
-  fill(120, 97, 88);
+  fill(116, 94, 59);
   loc[loc.length-1].set(mouseX, mouseY);
-  for (int i = 0; i < loc.length-1; i++) {
-    loc[i].set(loc[i+1]);
+  if (mouseX!= pmouseX || mouseY!=pmouseY) {
+    for (int i = 0; i < loc.length-1; i++) {
+      loc[i].set(loc[i+1]);
+    }
   }
   for (int i = loc.length-1; i >= 0; i--) {
-    ellipse(loc[i].x, loc[i].y, i*2, i*3);
+    ellipse(loc[i].x, loc[i].y, 50, 50);
   }
 }
-
 
