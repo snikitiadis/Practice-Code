@@ -3,9 +3,9 @@ class Particle {
   float sz;
 
   Particle() {
-    loc = new PVector(mouseX, mouseY);
-    vel = new PVector(random(2, 4), random(-1, 1));
-    acc = new PVector(.1, 0);
+    loc = new PVector(x, mouseY);
+    vel = new PVector(random(2, 4), random(-3, 3));
+    acc = new PVector(.1, .1);
     sz = 10;
   }
 
