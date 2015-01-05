@@ -19,14 +19,18 @@ void draw() {
   background(grass);
   fill(random(170, 220), 75, 75);
 
-  //class procedures
+  //determines if mousepressed and adds particles
   if (mousePressed) {
     allMyParticles.add(new Particle());
   }
+  
   for (int i = allMyParticles.size ()-1; i >= 0; i--) {
     Particle currentParticle = allMyParticles.get(i);
+    //display new particle
     currentParticle.display();
+    //adds vel and acc to move particles
     currentParticle.move();
+    //determines if particle is off screen
     if (currentParticle.isDead()) {
       allMyParticles.remove(i);
     }

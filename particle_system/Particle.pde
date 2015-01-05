@@ -7,8 +7,7 @@ class Particle {
   Particle() {
 
     //give values to variables
-
-    loc = new PVector(x, mouseY);
+    loc = new PVector(hosex, mouseY);
     vel = new PVector(random(2, 4), random(-3, 3));
     acc = new PVector(.1, .1);
     sz = 12;
@@ -23,6 +22,7 @@ class Particle {
     loc.add(vel);
   }
 
+  //determine if particles that are off screen
   boolean isDead() {
     if (loc.x -sz/2 > width && loc.y -sz/2 > height) {
       return true;
