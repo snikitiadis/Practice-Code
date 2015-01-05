@@ -1,20 +1,25 @@
+//create arraylist with class
 ArrayList<Particle> allMyParticles = new ArrayList<Particle>();
 
-float x;
+float hosex;
 PImage grass;
 void setup() {
 
+  //load background
   imageMode(CENTER);
   grass = loadImage("grass.jpg");
   size(grass.width, grass.height);
+
   noStroke();
   colorMode(HSB, 360, 100, 100, 100);
-
+  noCursor();
 }
 
 void draw() {
   background(grass);
   fill(random(170, 220), 75, 75);
+
+  //class procedures
   if (mousePressed) {
     allMyParticles.add(new Particle());
   }
@@ -26,8 +31,13 @@ void draw() {
       allMyParticles.remove(i);
     }
   }
-  fill(116, 94, 59);
- 
- x= constrain(mouseX,0,200);
-  rect(0, mouseY-25, x, 50,0,50,50,0);
+
+  fill(120, 94, 90);
+
+  //constrain the hose's x value
+  hosex= constrain(mouseX, 0, 200);
+
+  //create hose
+  rect(0, mouseY-10, hosex, 20);
 }
+
